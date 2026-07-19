@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Виткова Татьяна — Психолог-эксперт, гештальт-терапевт | Частная практика</title>
+<meta name="description" content="Психологическая поддержка в сложные периоды жизни. Более 30 лет практики, психолог-эксперт, гештальт-терапевт. Работа с тревогой, травмой, семейными кризисами. Онлайн и очно.">
+<meta name="keywords" content="психолог, гештальт-терапевт, психотравматолог, психолог-эксперт, консультация психолога, психологическая помощь">
+<meta name="author" content="Виткова Татьяна">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://example.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Психологическая поддержка в сложные периоды жизни">
+<meta property="og:description" content="Более 30 лет практики. Гештальт-терапия, работа с травмой, семейными кризисами и тревогой. Судебный психолог-эксперт.">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Психологическая практика">
+
+<!-- Preconnects for font performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,440;9..144,560&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Schema.org structured data: Psychologist / Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Psychologist",
+  "name": "Виткова Татьяна",
+  "description": "Психолог-эксперт, гештальт-терапевт с более чем 30-летним опытом частной практики.",
+  "medicalSpecialty": "Psychotherapy",
+  "areaServed": "RU",
+  "availableService": [
+    {"@type":"MedicalTherapy","name":"Гештальт-терапия"},
+    {"@type":"MedicalTherapy","name":"Психотравматология"},
+    {"@type":"MedicalTherapy","name":"Интегративная психотерапия"}
+  ],
+  "priceRange": "от 2499 ₽"
+}
+</script>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   Palette:
+   --paper:   #F6F3EC (warm white)
+   --ink:     #2B2824 (deep charcoal)
+   --beige:   #E4D9C7 (soft beige accent)
+   --sage:    #8C9B84 (muted sage highlight)
+   --sage-dk: #5F6E58 (sage, deepened for text-on-light contrast)
+   --line:    #D8CDB9 (hairline rule)
+   Type:
+   display  -> 'Fraunces' (warm modern serif, optical sizing)
+   body     -> 'Manrope' (clean humanist sans)
+   utility  -> 'IBM Plex Mono' (captions, eyebrows, meta / timeline data)
+   ============================================================ */
+:root{
+  --paper:#F6F3EC;
+  --paper-dk:#EFEAE0;
+  --ink:#2B2824;
+  --ink-soft:#5A5650;
+  --beige:#E4D9C7;
+  --sage:#8C9B84;
+  --sage-dk:#5F6E58;
+  --line:#D8CDB9;
+  --radius:2px;
+  --radius-lg:6px;
+  --maxw:1180px;
+  --dur:0.6s;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Manrope', sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces', serif;
+  font-weight:440;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--sage-dk);
+  display:flex;
+  align-items:center;
+  gap:0.6em;
+}
+.eyebrow::before{
+  content:"";
+  width:18px;
+  height:1px;
+  background:var(--sage-dk);
+  display:inline-block;
+}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 24px;
+}
+@media(min-width:768px){ .wrap{padding:0 48px;} }
+
+section{
+  padding:96px 0;
+  position:relative;
+}
+@media(max-width:767px){ section{padding:64px 0;} }
+
+/* Reveal-on-scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity var(--dur) cubic-bezier(.22,.61,.36,1), transform var(--dur) cubic-bezier(.22,.61,.36,1);
+}
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ============================= NAV ============================= */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(246,243,236,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+@media(min-width:768px){ .nav-inner{padding:18px 48px;} }
+.brand{
+  font-family:'Fraunces', serif;
+  font-size:1.05rem;
+  font-weight:440;
+  letter-spacing:0.01em;
+}
+.brand span{ color:var(--sage-dk); }
+.nav-links{
+  display:none;
+  gap:32px;
+  font-size:0.9rem;
+}
+@media(min-width:960px){ .nav-links{ display:flex; } }
+.nav-links a{
+  position:relative;
+  color:var(--ink-soft);
+  transition:color 0.25s;
+}
+.nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); }
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-4px;
+  width:0; height:1px;
+  background:var(--sage-dk);
+  transition:width 0.3s;
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  letter-spacing:0.04em;
+  background:var(--ink);
+  color:var(--paper);
+  padding:11px 20px;
+  border-radius:var(--radius);
+  transition:background 0.25s, transform 0.25s;
+  white-space:nowrap;
+}
+.nav-cta:hover{ background:var(--sage-dk); }
+
+/* ============================= HERO ============================= */
+.hero{
+  padding:120px 0 96px;
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:48px;
+  align-items:end;
+}
+@media(min-width:960px){
+  .hero-grid{ grid-template-columns: 7fr 5fr; gap:64px; }
+}
+.hero h1{
+  font-size:clamp(2.3rem, 5.4vw, 4.1rem);
+  line-height:1.06;
+  margin:20px 0 28px;
+  max-width:14ch;
+}
+.hero p.lede{
+  font-size:1.1rem;
+  color:var(--ink-soft);
+  max-width:52ch;
+  margin-bottom:36px;
+}
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:44px;
+}
+.btn{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.82rem;
+  letter-spacing:0.03em;
+  padding:16px 28px;
+  border-radius:var(--radius);
+  transition:all 0.25s;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.btn-primary{
+  background:var(--ink);
+  color:var(--paper);
+}
+.btn-primary:hover{ background:var(--sage-dk); transform:translateY(-1px); }
+.btn-secondary{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+.btn-secondary:hover{ border-color:var(--ink); }
+
+.hero-trust{
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.hero-trust .stat{ min-width:110px; }
+.hero-trust .stat b{
+  font-family:'Fraunces', serif;
+  font-size:1.9rem;
+  font-weight:440;
+  display:block;
+  color:var(--sage-dk);
+}
+.hero-trust .stat span{
+  font-size:0.8rem;
+  color:var(--ink-soft);
+}
+
+/* Hero visual: abstract Bauhaus-inspired geometric composition (no stock photos) */
+.hero-visual{
+  aspect-ratio:4/5;
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  background:var(--beige);
+}
+.hero-visual svg{ width:100%; height:100%; }
+.hero-visual .cap{
+  position:absolute;
+  bottom:14px; left:14px; right:14px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.68rem;
+  color:var(--ink-soft);
+  letter-spacing:0.03em;
+  background:rgba(246,243,236,0.82);
+  padding:8px 10px;
+  border-radius:var(--radius);
+}
+
+/* ============================= SECTION HEADS ============================= */
+.section-head{
+  max-width:640px;
+  margin-bottom:56px;
+}
+.section-head h2{
+  font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+  margin-top:14px;
+}
+.section-head p{
+  color:var(--ink-soft);
+  margin-top:16px;
+  font-size:1.02rem;
+}
+.section-alt{ background:var(--paper-dk); }
+
+/* ============================= ABOUT ============================= */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
+}
+@media(min-width:960px){ .about-grid{ grid-template-columns:5fr 7fr; gap:64px; } }
+.about-portrait{
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg, var(--sage) 0%, var(--beige) 100%);
+  border-radius:var(--radius-lg);
+  position:relative;
+  overflow:hidden;
+}
+.about-portrait svg{ width:100%; height:100%; }
+.about-copy p{ margin-bottom:18px; color:var(--ink-soft); font-size:1.02rem; }
+.about-copy p:first-child{ color:var(--ink); font-size:1.15rem; font-family:'Fraunces', serif; font-weight:340; line-height:1.5;}
+.about-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:28px;
+}
+.badge{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  letter-spacing:0.02em;
+  border:1px solid var(--line);
+  padding:8px 14px;
+  border-radius:20px;
+  color:var(--ink-soft);
+}
+
+/* ============================= EXPERTISE CARDS ============================= */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(1,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+@media(min-width:640px){ .card-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(min-width:1024px){ .card-grid{ grid-template-columns:repeat(3,1fr); } }
+.card{
+  background:var(--paper);
+  padding:32px 28px;
+  transition:background 0.3s;
+}
+.card:hover{ background:var(--paper-dk); }
+.card .num{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  color:var(--sage-dk);
+  letter-spacing:0.05em;
+}
+.card h3{
+  font-size:1.15rem;
+  font-weight:440;
+  margin:14px 0 10px;
+}
+.card p{ font-size:0.92rem; color:var(--ink-soft); }
+
+/* ============================= BENEFITS ============================= */
+.benefit-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+@media(min-width:768px){ .benefit-list{ grid-template-columns:1fr 1fr; } }
+.benefit-item{
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+@media(min-width:768px){
+  .benefit-item:nth-child(odd){ padding-right:32px; border-right:1px solid var(--line); }
+  .benefit-item:nth-child(even){ padding-left:32px; }
+}
+.benefit-item .mark{
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--sage);
+  margin-top:9px;
+  flex-shrink:0;
+}
+.benefit-item p{ font-size:1rem; }
+
+.quote-block{
+  margin-top:64px;
+  padding:48px 40px;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:var(--radius-lg);
+  position:relative;
+}
+.quote-block::before{
+  content:"“";
+  font-family:'Fraunces', serif;
+  font-size:5rem;
+  color:var(--sage);
+  position:absolute;
+  top:-6px; left:24px;
+  line-height:1;
+}
+.quote-block p{
+  font-family:'Fraunces', serif;
+  font-size:1.4rem;
+  font-weight:340;
+  line-height:1.5;
+  max-width:60ch;
+  margin-left:8px;
+}
+
+/* ============================= TIMELINE (credentials + education) ============================= */
+.timeline{
+  position:relative;
+  padding-left:28px;
+  border-left:1px solid var(--line);
+}
+.tl-item{
+  position:relative;
+  padding-bottom:40px;
+}
+.tl-item:last-child{ padding-bottom:0; }
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-33px; top:4px;
+  width:9px; height:9px;
+  border-radius:50%;
+  background:var(--sage-dk);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 1px var(--line);
+}
+.tl-year{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem;
+  color:var(--sage-dk);
+  letter-spacing:0.04em;
+}
+.tl-item h4{ font-size:1.1rem; margin:6px 0 6px; font-weight:440; }
+.tl-item p{ color:var(--ink-soft); font-size:0.94rem; }
+.tl-meta{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--ink-soft); margin-top:4px; }
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:64px;
+}
+@media(min-width:960px){ .two-col{ grid-template-columns:1fr 1fr; } }
+
+/* ============================= TRUST ============================= */
+.trust-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+@media(min-width:768px){ .trust-grid{ grid-template-columns:repeat(4,1fr); } }
+.trust-item{
+  background:var(--paper);
+  padding:36px 26px;
+}
+.trust-item .glyph{
+  width:38px; height:38px;
+  margin-bottom:18px;
+}
+.trust-item h3{ font-size:1.02rem; margin-bottom:10px; }
+.trust-item p{ font-size:0.88rem; color:var(--ink-soft); }
+
+/* ============================= CONSULTATION ============================= */
+.price-card{
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:var(--radius-lg);
+  padding:48px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:32px;
+}
+@media(min-width:768px){ .price-card{ grid-template-columns:1.3fr 1fr; padding:56px; } }
+.price-card h3{ color:var(--paper); font-size:1.6rem; margin-bottom:12px; }
+.price-card .price{
+  font-family:'Fraunces', serif;
+  font-size:2.6rem;
+  color:var(--beige);
+}
+.price-card .price small{ font-size:1rem; font-family:'Manrope',sans-serif; color:var(--paper); opacity:0.7; }
+.price-notes li{
+  padding:10px 0;
+  border-top:1px solid rgba(246,243,236,0.16);
+  font-size:0.92rem;
+  display:flex;
+  gap:10px;
+}
+.price-notes li:last-child{ border-bottom:1px solid rgba(246,243,236,0.16); }
+.price-notes li::before{ content:"—"; color:var(--sage); }
+
+/* ============================= CONTACT ============================= */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+@media(min-width:640px){ .contact-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(min-width:1024px){ .contact-grid{ grid-template-columns:repeat(4,1fr); } }
+.contact-item{
+  background:var(--paper);
+  padding:30px 26px;
+  transition:background 0.25s;
+}
+.contact-item:hover{ background:var(--paper-dk); }
+.contact-item .eyebrow{ margin-bottom:14px; }
+.contact-item .value{ font-size:1.05rem; font-family:'Fraunces', serif; }
+
+/* ============================= FINAL CTA ============================= */
+.final{
+  background:var(--ink);
+  color:var(--paper);
+  text-align:center;
+  padding:110px 0;
+}
+.final h2{
+  color:var(--paper);
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  max-width:20ch;
+  margin:0 auto 24px;
+}
+.final p{
+  color:rgba(246,243,236,0.78);
+  max-width:56ch;
+  margin:0 auto 40px;
+  font-size:1.05rem;
+}
+.final .btn-primary{ background:var(--sage); color:var(--ink); }
+.final .btn-primary:hover{ background:var(--beige); }
+
+/* ============================= FOOTER ============================= */
+footer{
+  padding:40px 0;
+  border-top:1px solid var(--line);
+  font-size:0.82rem;
+  color:var(--ink-soft);
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:space-between;
+}
+
+/* ============================= MOBILE STICKY CTA ============================= */
+.mobile-cta{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:200;
+  background:var(--ink);
+  color:var(--paper);
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.82rem;
+  letter-spacing:0.03em;
+  border-top:1px solid var(--sage);
+}
+@media(min-width:960px){ .mobile-cta{ display:none; } }
+
+/* Focus visibility for accessibility */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--sage-dk);
+  outline-offset:3px;
+}
+
+/* ============================= DARK MODE ============================= */
+@media(prefers-color-scheme: dark){
+  :root{
+    --paper:#1B1917;
+    --paper-dk:#231F1B;
+    --ink:#F1ECE2;
+    --ink-soft:#B9B2A4;
+    --beige:#3A342A;
+    --sage:#8FA085;
+    --sage-dk:#A7B69C;
+    --line:#3A352D;
+  }
+  .quote-block, .price-card, .final{ background:#100F0D; }
+  .hero-visual{ background:#2A2620; }
+  .about-portrait{ background:linear-gradient(160deg, #3F4A3A 0%, #33291F 100%); }
+  .nav{ background:rgba(27,25,23,0.85); }
+  .btn-primary{ background:var(--sage-dk); color:#100F0D; }
+  .btn-primary:hover{ background:var(--sage); }
+  .nav-cta{ background:var(--sage-dk); color:#100F0D; }
+  .mobile-cta{ background:#100F0D; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= NAVIGATION ============================= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Виткова <span>Татьяна</span></a>
+    <div class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#expertise">Направления</a>
+      <a href="#credentials">Опыт</a>
+      <a href="#education">Образование</a>
+      <a href="#consultation">Консультация</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a href="#consultation" class="nav-cta">Записаться</a>
+  </div>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<header id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow reveal">Психолог · Гештальт-терапевт · Психолог-эксперт</p>
+      <h1 class="reveal">Психологическая поддержка в сложные периоды жизни</h1>
+      <p class="lede reveal">Более 30 лет профессиональной практики. Помощь в преодолении жизненных кризисов, травматического опыта, тревоги, семейных конфликтов и последствий насилия.</p>
+      <div class="cta-row reveal">
+        <a href="#consultation" class="btn btn-primary">Записаться на консультацию</a>
+        <a href="#about" class="btn btn-secondary">Узнать подробнее</a>
+      </div>
+      <div class="hero-trust reveal">
+        <div class="stat"><b>30+</b><span>лет практики</span></div>
+        <div class="stat"><b>1999</b><span>высшая категория</span></div>
+        <div class="stat"><b>2×</b><span>лауреат «Психолог Кубани»</span></div>
+        <div class="stat"><b>100%</b><span>конфиденциальность</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal" aria-hidden="true">
+      <!-- Abstract Bauhaus-inspired geometric composition standing in for a portrait -->
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="500" fill="#E4D9C7"/>
+        <circle cx="290" cy="150" r="120" fill="#8C9B84" opacity="0.55"/>
+        <rect x="40" y="260" width="220" height="220" fill="#2B2824" opacity="0.9"/>
+        <polygon points="0,500 160,500 0,340" fill="#F6F3EC" opacity="0.7"/>
+        <line x1="0" y1="120" x2="400" y2="120" stroke="#2B2824" stroke-width="1" opacity="0.35"/>
+        <circle cx="90" cy="90" r="6" fill="#2B2824"/>
+      </svg>
+      <div class="cap">Спокойствие · Устойчивость · Профессионализм</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= ABOUT ============================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-portrait reveal" aria-hidden="true">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+        <rect width="300" height="400" fill="none"/>
+        <rect x="0" y="0" width="300" height="400" fill="#E4D9C7"/>
+        <rect x="30" y="60" width="240" height="1" fill="#2B2824" opacity="0.3"/>
+        <rect x="30" y="340" width="240" height="1" fill="#2B2824" opacity="0.3"/>
+        <circle cx="150" cy="200" r="86" fill="#F6F3EC"/>
+        <rect x="150" y="114" width="86" height="86" fill="#5F6E58" opacity="0.85"/>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow reveal">Обо мне</p>
+      <h2 class="reveal" style="margin:14px 0 24px; font-size:clamp(1.6rem,3vw,2.2rem);">Более 30 лет частной практики — с детьми, подростками и взрослыми</h2>
+      <p class="reveal">Работала практическим психологом в учреждениях образования Краснодарского края, а сегодня веду частную практику, помогая людям бережно проходить через кризисы, травматический опыт и трудные семейные ситуации.</p>
+      <p class="reveal">С 1999 года имею высшую квалификационную категорию и являюсь автором нескольких психолого-педагогических программ коррекции и развития детей и подростков. Работаю психологом-экспертом: участвую в судебных процессах, составляю экспертные психологические заключения и имею сертификат соответствия судебного эксперта.</p>
+      <p class="reveal">Входила в состав группы психологов-волонтёров, работавших с семьями, пострадавшими в трагедии в Беслане — опыт, который сформировал моё бережное и научно обоснованное отношение к работе с тяжёлой травмой.</p>
+      <p class="reveal">Дважды становилась победителем и лауреатом краевого конкурса «Психолог Кубани» — в 2013 и 2021 годах. Являюсь действительным членом ОППЛ, автором научных и практических публикаций, а также более двух лет веду онлайн КиноКлуб по психологии.</p>
+      <div class="about-badges reveal">
+        <span class="badge">Высшая категория · с 1999</span>
+        <span class="badge">Психолог-эксперт</span>
+        <span class="badge">Действительный член ОППЛ</span>
+        <span class="badge">Лауреат «Психолог Кубани» 2013 / 2021</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EXPERTISE ============================= -->
+<section id="expertise" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Направления работы</p>
+      <h2>Области профессиональной экспертизы</h2>
+      <p>Каждое направление опирается на научно обоснованные, проверенные временем методы психотерапии.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card reveal"><span class="num">01</span><h3>Гештальт-терапия</h3><p>Работа с осознаванием, контактом и целостностью личного опыта.</p></div>
+      <div class="card reveal"><span class="num">02</span><h3>Психотравматология</h3><p>Бережное сопровождение при последствиях острой и хронической травмы.</p></div>
+      <div class="card reveal"><span class="num">03</span><h3>Интегративная психотерапия</h3><p>Гибкое сочетание подходов, адаптированное под задачу клиента.</p></div>
+      <div class="card reveal"><span class="num">04</span><h3>Поведенческая психотерапия</h3><p>Практические техники для изменения деструктивных паттернов поведения.</p></div>
+      <div class="card reveal"><span class="num">05</span><h3>РЭПТ</h3><p>Рационально-эмоционально-поведенческая терапия убеждений и установок.</p></div>
+      <div class="card reveal"><span class="num">06</span><h3>Последствия эмоционального насилия</h3><p>Восстановление внутренних границ и чувства собственной ценности.</p></div>
+      <div class="card reveal"><span class="num">07</span><h3>Последствия сексуального насилия</h3><p>Экологичная работа с травмой в атмосфере полной безопасности.</p></div>
+      <div class="card reveal"><span class="num">08</span><h3>Семейный абьюз</h3><p>Поддержка при выходе из деструктивных отношений и их последствий.</p></div>
+      <div class="card reveal"><span class="num">09</span><h3>Кризисные ситуации</h3><p>Сопровождение в острые периоды жизненных перемен и потерь.</p></div>
+      <div class="card reveal"><span class="num">10</span><h3>Тревога и страхи</h3><p>Снижение тревожности и возвращение ощущения устойчивости.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= WHAT CLIENTS RECEIVE ============================= -->
+<section id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Результаты терапии</p>
+      <h2>Что вы получаете от работы со мной</h2>
+      <p>Терапия — это не только облегчение симптомов, но и устойчивый личностный рост.</p>
+    </div>
+    <div class="benefit-list">
+      <div class="benefit-item reveal"><span class="mark"></span><p>Безопасное проживание жизненного кризиса</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Понимание причин психологических трудностей</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Практические алгоритмы решения проблем</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Улучшение семейных отношений</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Личностный рост</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Профессиональное развитие</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Снижение тревожности</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Повышение уверенности в себе</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Освобождение от ограничивающих убеждений</p></div>
+      <div class="benefit-item reveal"><span class="mark"></span><p>Повышение качества жизни</p></div>
+    </div>
+    <div class="quote-block reveal">
+      <p>Наша совместная работа проходит в атмосфере конфиденциальности, уважения и бережного сопровождения на пути к внутренним изменениям.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CREDENTIALS + EDUCATION ============================= -->
+<section id="credentials" class="section-alt">
+  <div class="wrap two-col">
+    <div>
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <p class="eyebrow">Опыт и достижения</p>
+        <h2>Профессиональный путь</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <p class="tl-year">С 1987</p>
+          <h4>Более 30 лет практики</h4>
+          <p>Непрерывная работа с детьми, подростками и взрослыми в образовании и частной практике.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">1999</p>
+          <h4>Высшая квалификационная категория</h4>
+          <p>Присвоена по итогам профессиональной аттестации.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">Текущая практика</p>
+          <h4>Психолог-эксперт</h4>
+          <p>Участие в судебных процессах, составление экспертных психологических заключений.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">Сертификация</p>
+          <h4>Судебно-психологическая экспертиза</h4>
+          <p>Сертификат соответствия судебного эксперта.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">Волонтёрство</p>
+          <h4>Работа с последствиями трагедии в Беслане</h4>
+          <p>В составе группы психологов-волонтёров с пострадавшими семьями.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2013 / 2021</p>
+          <h4>Победы в конкурсе «Психолог Кубани»</h4>
+          <p>Победитель муниципального и лауреат краевого этапов.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">Публикации</p>
+          <h4>Научные и практические публикации</h4>
+          <p>Автор статей и методических материалов по психологии.</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">Членство</p>
+          <h4>Действительный член ОППЛ</h4>
+          <p>Общероссийская профессиональная психотерапевтическая лига.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="education">
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <p class="eyebrow">Образование и сертификаты</p>
+        <h2>Непрерывное профессиональное развитие</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <p class="tl-year">1987–1992</p>
+          <h4>Тбилисский государственный педагогический институт им. С.С. Орбелиани</h4>
+          <p>Специальность: педагогика и психология (дошкольная).</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2005</p>
+          <h4>Терапия последствий травм, жестокого обращения и депривации</h4>
+          <p class="tl-meta">120 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2015</p>
+          <h4>Основы гештальт-терапии</h4>
+          <p class="tl-meta">Московский Гештальт Институт · 150 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2016</p>
+          <h4>Гештальт-подход в работе с детьми</h4>
+          <p class="tl-meta">Московский Гештальт Институт · 180 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2022</p>
+          <h4>Психологическая помощь в ситуации абьюза</h4>
+          <p class="tl-meta">73 часа</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2023</p>
+          <h4>«Я тебе верю. Вместе против насилия»</h4>
+          <p class="tl-meta">50 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2024</p>
+          <h4>Гештальт-мозаика</h4>
+          <p class="tl-meta">96 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2025</p>
+          <h4>«Обретение целостности»</h4>
+          <p class="tl-meta">45 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2025</p>
+          <h4>Судебная психологическая экспертиза</h4>
+          <p class="tl-meta">180 часов</p>
+        </div>
+        <div class="tl-item reveal">
+          <p class="tl-year">2026</p>
+          <h4>Интегративная психотерапия Р. Эрскина в работе с утратой</h4>
+          <p class="tl-meta">68 часов</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TRUST ============================= -->
+<section id="trust">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Почему клиенты выбирают меня</p>
+      <h2>Основания для доверия</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#5F6E58" stroke-width="2"/><path d="M20 8v12l8 6" stroke="#5F6E58" stroke-width="2" fill="none"/></svg>
+        <h3>Более 30 лет опыта</h3>
+        <p>Непрерывная практика с детьми, подростками и взрослыми клиентами.</p>
+      </div>
+      <div class="trust-item reveal">
+        <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" fill="none" stroke="#5F6E58" stroke-width="2"/><path d="M12 20h16M20 12v16" stroke="#5F6E58" stroke-width="2"/></svg>
+        <h3>Научный и практический подход</h3>
+        <p>Методы, подтверждённые исследованиями и проверенные временем.</p>
+      </div>
+      <div class="trust-item reveal">
+        <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6c8 4 14 4 14 4v12c0 8-6 12-14 14C12 34 6 30 6 22V10s6 0 14-4z" fill="none" stroke="#5F6E58" stroke-width="2"/></svg>
+        <h3>Бережная работа с травмой</h3>
+        <p>Экологичное сопровождение при последствиях насилия и депривации.</p>
+      </div>
+      <div class="trust-item reveal">
+        <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true"><rect x="8" y="14" width="24" height="18" rx="2" fill="none" stroke="#5F6E58" stroke-width="2"/><path d="M13 14v-3a7 7 0 0114 0v3" fill="none" stroke="#5F6E58" stroke-width="2"/></svg>
+        <h3>Конфиденциальность</h3>
+        <p>Уважение к личности клиента и полная защита личной информации.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONSULTATION ============================= -->
+<section id="consultation" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Консультация</p>
+      <h2>Условия работы</h2>
+    </div>
+    <div class="price-card reveal">
+      <div>
+        <h3>Психологическая консультация</h3>
+        <p class="price">от 2499 ₽ <small>/ 60 минут</small></p>
+      </div>
+      <ul class="price-notes">
+        <li>Индивидуальный подход к каждому запросу</li>
+        <li>Гибкая система скидок</li>
+        <li>Онлайн и дистанционный формат</li>
+        <li>Конфиденциальность гарантирована</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT ============================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Контакты</p>
+      <h2>Сделать первый шаг</h2>
+      <p>Выберите удобный способ связи — я отвечу лично и подберу время для консультации.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="tel:+70000000000" class="contact-item reveal">
+        <p class="eyebrow">Телефон</p>
+        <p class="value">+7 (000) 000-00-00</p>
+      </a>
+      <a href="https://wa.me/70000000000" class="contact-item reveal">
+        <p class="eyebrow">WhatsApp</p>
+        <p class="value">Написать в WhatsApp</p>
+      </a>
+      <a href="https://t.me/username" class="contact-item reveal">
+        <p class="eyebrow">Telegram</p>
+        <p class="value">@username</p>
+      </a>
+      <a href="mailto:hello@example.com" class="contact-item reveal">
+        <p class="eyebrow">Email</p>
+        <p class="value">hello@example.com</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FINAL CTA ============================= -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="reveal">Иногда для важных перемен достаточно одного разговора</h2>
+    <p class="reveal">Если вы столкнулись с жизненными трудностями, тревогой, последствиями травматического опыта или хотите лучше понять себя — вы можете обратиться за профессиональной поддержкой.</p>
+    <a href="#contact" class="btn btn-primary reveal">Сделать первый шаг</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; width:100%;">
+    <span>© 2026 Виткова Татьяна. Все права защищены.</span>
+    <span>Психолог · Гештальт-терапевт · Психолог-эксперт</span>
+  </div>
+</footer>
+
+<!-- Mobile always-visible contact CTA -->
+<div class="mobile-cta">
+  <a href="#consultation" style="color:inherit;">Записаться на консультацию →</a>
+</div>
+
+<script>
+// Scroll-reveal via IntersectionObserver (respects prefers-reduced-motion through CSS)
+document.addEventListener('DOMContentLoaded', function () {
+  var items = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(function (el, i) {
+    el.style.transitionDelay = (Math.min(i % 6, 5) * 0.05) + 's';
+    io.observe(el);
+  });
+});
+</script>
+
+</body>
+</html>
