@@ -64,6 +64,13 @@
   --sage:#8C9B84;
   --sage-dk:#5F6E58;
   --line:#D8CDB9;
+  /* Fixed tokens for panels that are always a dark surface with light
+     text, independent of system light/dark appearance (see note near
+     the bottom of this stylesheet). */
+  --surface-dark:#2B2824;
+  --surface-dark-2:#221F1B;
+  --on-dark:#F6F3EC;
+  --on-dark-soft:rgba(246,243,236,0.78);
   --radius:2px;
   --radius-lg:6px;
   --maxw:1180px;
@@ -185,8 +192,8 @@ section{
   font-family:'IBM Plex Mono', monospace;
   font-size:0.78rem;
   letter-spacing:0.04em;
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
   padding:11px 20px;
   border-radius:var(--radius);
   transition:background 0.25s, transform 0.25s;
@@ -238,8 +245,8 @@ section{
   gap:10px;
 }
 .btn-primary{
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
 }
 .btn-primary:hover{ background:var(--sage-dk); transform:translateY(-1px); }
 .btn-secondary{
@@ -401,8 +408,8 @@ section{
 .quote-block{
   margin-top:64px;
   padding:48px 40px;
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
   border-radius:var(--radius-lg);
   position:relative;
 }
@@ -486,8 +493,8 @@ section{
 
 /* ============================= CONSULTATION ============================= */
 .price-card{
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
   border-radius:var(--radius-lg);
   padding:48px;
   display:grid;
@@ -495,13 +502,13 @@ section{
   gap:32px;
 }
 @media(min-width:768px){ .price-card{ grid-template-columns:1.3fr 1fr; padding:56px; } }
-.price-card h3{ color:var(--paper); font-size:1.6rem; margin-bottom:12px; }
+.price-card h3{ color:var(--on-dark); font-size:1.6rem; margin-bottom:12px; }
 .price-card .price{
   font-family:'Fraunces', serif;
   font-size:2.6rem;
   color:var(--beige);
 }
-.price-card .price small{ font-size:1rem; font-family:'Manrope',sans-serif; color:var(--paper); opacity:0.7; }
+.price-card .price small{ font-size:1rem; font-family:'Manrope',sans-serif; color:var(--on-dark); opacity:0.7; }
 .price-notes li{
   padding:10px 0;
   border-top:1px solid rgba(246,243,236,0.16);
@@ -535,19 +542,19 @@ section{
 
 /* ============================= FINAL CTA ============================= */
 .final{
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
   text-align:center;
   padding:110px 0;
 }
 .final h2{
-  color:var(--paper);
+  color:var(--on-dark);
   font-size:clamp(1.8rem, 4vw, 2.8rem);
   max-width:20ch;
   margin:0 auto 24px;
 }
 .final p{
-  color:rgba(246,243,236,0.78);
+  color:var(--on-dark-soft);
   max-width:56ch;
   margin:0 auto 40px;
   font-size:1.05rem;
@@ -566,14 +573,18 @@ footer{
   gap:12px;
   justify-content:space-between;
 }
+/* Reserve room below the footer on mobile so the fixed sticky CTA
+   bar never overlaps the footer text (matches the .mobile-cta
+   breakpoint below). */
+@media(max-width:959px){ footer{ padding-bottom:96px; } }
 
 /* ============================= MOBILE STICKY CTA ============================= */
 .mobile-cta{
   position:fixed;
   left:0; right:0; bottom:0;
   z-index:200;
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--surface-dark);
+  color:var(--on-dark);
   padding:14px 20px;
   display:flex;
   align-items:center;
@@ -591,27 +602,19 @@ a:focus-visible, button:focus-visible{
   outline-offset:3px;
 }
 
-/* ============================= DARK MODE ============================= */
-@media(prefers-color-scheme: dark){
-  :root{
-    --paper:#1B1917;
-    --paper-dk:#231F1B;
-    --ink:#F1ECE2;
-    --ink-soft:#B9B2A4;
-    --beige:#3A342A;
-    --sage:#8FA085;
-    --sage-dk:#A7B69C;
-    --line:#3A352D;
-  }
-  .quote-block, .price-card, .final{ background:#100F0D; }
-  .hero-visual{ background:#2A2620; }
-  .about-portrait{ background:linear-gradient(160deg, #3F4A3A 0%, #33291F 100%); }
-  .nav{ background:rgba(27,25,23,0.85); }
-  .btn-primary{ background:var(--sage-dk); color:#100F0D; }
-  .btn-primary:hover{ background:var(--sage); }
-  .nav-cta{ background:var(--sage-dk); color:#100F0D; }
-  .mobile-cta{ background:#100F0D; }
-}
+/* ============================================================
+   NOTE ON THEMING:
+   The always-dark accent panels (quote block, pricing card,
+   final CTA, nav CTA button, mobile sticky CTA) use dedicated
+   --surface-dark / --on-dark fixed tokens instead of the
+   page-level --ink / --paper tokens. Previously those page
+   tokens flipped under system dark mode, which collapsed the
+   contrast on these panels (dark text on a dark background)
+   and made the site render differently on iPhone vs Android
+   depending on each device's system appearance setting. Fixed,
+   non-flipping colors guarantee identical, readable contrast
+   on every device regardless of OS theme.
+   ============================================================ */
 </style>
 </head>
 <body>
