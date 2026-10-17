@@ -13,3 +13,6 @@ Clean, pushed, up to date with `origin/main` (github.com/followorbounce/vta). Si
 
 ## Next steps
 No open TODOs found in the repo. Single index.html only — no README, css/, or js/ directories exist; consider splitting styles/scripts out if the page grows.
+
+## 2026-10-16 — Index infrastructure
+- added missing canonical URL, description where absent, Open Graph and twitter:card tags. The host-level robots.txt / sitemap index / llms.txt live in followorbounce.github.io.
